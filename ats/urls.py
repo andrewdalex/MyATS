@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 urlpatterns = [ 
     url(r'^', include('myats.urls')),
-    url(r'^login/', auth_views.login, {'template_name': 'login.html', 'redirect_field_name': 'home'}, name='login'),
+    url(r'^login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/',auth_views.logout_then_login, name='logout'),
     url(r'^admin/', admin.site.urls),
 ]

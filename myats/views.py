@@ -5,9 +5,9 @@ from .forms import RegForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-@login_required(login_url='/login/')
+@login_required
 def home(request):
-    return HttpResponse('Home Page')
+    return render(request,'home.html')
 def RegFormView(request):
     if request.method == 'POST':
         form = RegForm(request.POST)
