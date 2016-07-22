@@ -4,10 +4,15 @@ from django import forms
 from .forms import RegForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .models import *
 # Create your views here.
 @login_required
 def home(request):
-    return render(request,'home.html')
+    u = request.user
+    first_name = u.get_short_name()
+    #students = Student.objects.filter(student_parent=u.parent)
+    context = { 'first_name':first_name}
+    return render(request,'home.html', context=context)
 def RegFormView(request):
     if request.method == 'POST':
         form = RegForm(request.POST)

@@ -1,29 +1,37 @@
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+{% load staticfiles %}
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyATS Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="{% static 'login.css' %}" rel="stylesheet">
+  </head>
+  <body>
 
-{% if next %}
-  {% if user.is_authenticated %}
-  <p>Your account doesn't have access to this page.</p>
-  {% else %}
-  <p>Please login to see this page</p>
-  {% endif %}
-{% endif %}
-
-<form method='post' action='{% url 'login' %}'>
-{% csrf_token %}
-<table>
-<tr>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</tr>
-<tr>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type='submit' value='login' />
-<input type='hidden' name='next' value='{{ next }}' />
-</form>
-<a href='/signup/'>New to MyATS? Sign Up!</a>
+    <div class="container">
+      {% if form.errors %}
+      <p>Your username and password didn't match. Please try again.</p>
+      {% endif %}
+      {% if next %}
+        {% if user.is_authenticated %}
+          <p>Your account doesn't have access to this page.</p>
+        {% else %}
+          <p>Please login to see this page</p>
+        {% endif %}
+      {% endif %}
+      <form class="form-signin" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Sign in to MyATS!</h2>
+        <label for="inputEmail" class="sr-only">Username</label>
+        <input name="username" type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus/>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required/>
+        <button id="submitButton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	<a href='/signup/'>New to MyATS? Sign Up!</a>
+      </form>
+	
+    </div> <!-- /container -->
+  </body>
+  </html>

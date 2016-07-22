@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Parent(models.Model):
     parent_phone_number = models.CharField(max_length=20)
-    parent_user = models.ForeignKey(User, unique=True)
+    parent_user = models.OneToOneField(User, on_delete=models.CASCADE)
     parent_address = models.CharField(max_length=150)
     parent_zipcode = models.CharField(max_length=5)
     parent_city = models.CharField(max_length=50)
