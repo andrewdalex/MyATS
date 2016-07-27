@@ -1,0 +1,56 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+td{
+  text-align: left;
+}
+#logout {
+  padding-right: 475px;	
+}
+.header {
+  padding-bottom: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+}
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 14px 24px;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
