@@ -5,3 +5,5 @@ db.sqlite3
 *~
 settings.py
 /myats/migrations*
+/media/*
+\#*

@@ -47,3 +47,6 @@ class Enrollment(models.Model):
     class Meta:
         verbose_name_plural = 'Enrollments'
         verbose_name = 'Enrollment'
+
+class Resource(models.Model):
+    upload = models.FileField()

@@ -30,3 +30,9 @@ def RegFormView(request):
     else:
         form = RegForm()
     return render(request, 'createuser.html', {'form' : form})
+
+@login_required
+def ResourceView(request):
+    files = Resource.objects.all()
+    context = { 'files':files }
+    return render(request, 'resources.html', context=context)
