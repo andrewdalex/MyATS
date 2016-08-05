@@ -1,0 +1,54 @@
+body {
+  padding-top: 50px;
+}
+.navbar{
+  background: linear-gradient(to bottom, #229954, #2ed172); /* 2ECC71 */ /*faded from 229954 on w3 */
+}
+.active > a{
+  background-color: #229954 !important;
+}
+li > a{
+  color: #f0f3f4 !important;
+}
+
+a{
+  font-family: 'Roboto', sans-serif !important;
+}
+.navbar-brand{
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 250% !important;
+  color: #fff !important;
+}
+.navbar-toggle, .navbar-toggle:active{
+  border: none !important;
+  background-color: #229954 !important;
+}
+
+
+.icon-bar{
+  background-color: white !important;
+}
+
+li > a:hover{
+  color: #2ed172 !important;
+}
+ h2{
+   font-family: 'Roboto', sans-serif !important;
+   text-align:center;
+ }
+ .main-title{
+   padding-top: 20px;
+   font-family: 'Roboto', sans-serif !important;
+   text-align:center;
+   color: #12542E;
+ }
+ .table{
+   max-width: 650px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+ .footer {
+   padding-top: 19px;
+   color: #777;
+   border-top: 1px solid #e5e5e5;
+ }
