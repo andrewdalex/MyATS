@@ -48,14 +48,14 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'resources' %}">Resources</a></li>
-            <li><a href="#contact">My Schedule</a></li>
+            <li><a href="#schedule">My Schedule</a></li>
             <li><a href="{% url 'logout' %}">Sign Out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container">
-        <h2 class="main-title">Welcome, [Student Name]. <br>Check on your application status here.</h2>
+        <h2 class="main-title">Welcome, {{ first_name }}. <br>Check on your application status here.</h2>
         <table class="table table-striped">
           <thead>
             <tr>
