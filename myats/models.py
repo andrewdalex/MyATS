@@ -18,7 +18,7 @@ class Student(models.Model):
     student_first_name = models.CharField(max_length=50)
     student_last_name = models.CharField(max_length=50)
     student_school = models.CharField(max_length=100)
-    forms_recieved = models.ManyToManyField(Form, related_name='students_completed',through="ReceivedForm")
+    forms_received = models.ManyToManyField(Form, related_name='students_completed',through="ReceivedForm")
     class Meta:
         verbose_name_plural = 'Students'
         verbose_name = 'Student'
@@ -50,6 +50,6 @@ class Resource(models.Model):
 class ReceivedForm(models.Model):
     form = models.ForeignKey(Form, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    date_recieved = models.DateField()
+    date_received = models.DateField()
     def __str__(self):
         return '{0},{1}'.format(self.student.student_last_name,self.student.student_first_name)

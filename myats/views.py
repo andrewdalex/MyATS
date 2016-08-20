@@ -9,7 +9,10 @@ from .models import *
 def home(request):
     u = request.user
     first_name = u.get_short_name()
-    context = { 'first_name':first_name}
+    student = Student.objects.get(student_user=u)
+    forms = Form.objects.order_by('form_deadline')
+    received_forms = ReceivedForm.objects.filter(student=student)
+    context = { 'first_name':first_name, 'forms':forms, 'student':student, 'received_forms':received_forms }
     return render(request,'home.html', context=context)
 
 @login_required

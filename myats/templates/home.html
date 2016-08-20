@@ -64,17 +64,22 @@
               <th>Date Recieved</th>
             </tr>
           </thead>
-          <tbody>     <!-- Placeholder data until Django generated data loaded in later -->
+          <tbody>
+            {% for f in forms %}
             <tr>
-              <td>[Form Title]</td>
-              <td>[Deadline]</td>
-              <td>[Date Recieved]</td>
+              <td>{{ f.form_name }}</td>
+              <td>{{ f.form_deadline }}</td>
+              {% if f in student.forms_received.all %}
+                {% for r_form in received_forms %}
+                  {% if r_form.form.form_name == f.form_name %}
+                    <td>{{ r_form.date_received }} </td>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+              <td>Not Received</td>
+              {% endif %}
             </tr>
-            <tr>
-              <td>[Form Title]</td>
-              <td>[Deadline]</td>
-              <td>[Date Recieved]</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
 
