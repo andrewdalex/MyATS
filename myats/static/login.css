@@ -40,13 +40,13 @@ body {
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
 
-  background-color: #1D9667;
+  background-color: #2ed172;
   border-color: #000000;
  }
 
 .btn
 {
-  background-color: #20cc99;
+  background-color: #229954;
   border-color: #000000;
 }
 .btn:active

@@ -42,47 +42,35 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}">MyATS</a>
+          <a class="navbar-brand" href="/home/{{ student_id }}">MyATS</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'resources' %}">Resources</a></li>
-            <li><a href="#schedule">My Schedule</a></li>
-            <li><a href="{% url 'logout' %}">Sign Out</a></li>
+            <li class="active"><a href="/home/{{ student_id }}">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="{% url 'search' %}">Search for New Student</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container">
-        <h2 class="main-title">Welcome, {{ first_name }}. <br>Check on your application status here.</h2>
+        <h2 class="main-title">Welcome!<br>Check out any forms you may need here.</h2>
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Document</th>
-              <th>Deadline</th>
-              <th>Date Recieved</th>
+              <th>Item Title</th>
+              <th>Additional Information</th>
             </tr>
           </thead>
           <tbody>
-            {% for f in forms %}
+            {% for file in files %}
             <tr>
-              <td>{{ f.form_name }}</td>
-              <td>{{ f.form_deadline }}</td>
-              {% if f in student.forms_received.all %}
-                {% for r_form in received_forms %}
-                  {% if r_form.form.form_name == f.form_name %}
-                    <td>{{ r_form.date_received }} </td>
-                  {% endif %}
-                {% endfor %}
-              {% else %}
-              <td>Not Received</td>
-              {% endif %}
+              <td><a href='{{ MEDIA_URL }}{{ file.upload.name }}'>{{ file.resource_name }}</a></td>
+              <td><a href='/info/{{ student_id }}/{{ file.resource_name }}'>Additional Information</a></td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
-
         <footer class="footer">
             <p>Draft by Andrew Alex, 2016</p>
         </footer>

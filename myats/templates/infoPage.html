@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MyATS | Resources</title>
+    <title>MyATS | Info | {{ resource.resource_name }}</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap core CSS -->
@@ -42,22 +42,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}">MyATS</a>
+          <a class="navbar-brand" href="/home/{{ student.student_id }}">MyATS</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li class="active"><a href="{% url 'resources' %}">Resources</a></li>
-            <li><a href="#contact">My Schedule</a></li>
-            <li><a href="{% url 'logout' %}">Sign Out</a></li>
+            <li><a href="/home/{{ student.student_id }}">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="{% url 'search' %}">Search for New Student</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container">
-        <h2 class="main-title">All the forms you need before enjoying your
-        summer with us.</h2>
-
+        <h2 class="main-title">{{ resource.resource_name }}</h2>
+        <p>{{ resource.resource_description }}</p>
 
         <footer class="footer">
             <p>Draft by Andrew Alex, 2016</p>

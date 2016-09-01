@@ -18,9 +18,7 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-urlpatterns = [ 
+urlpatterns = [
     url(r'^', include('myats.urls')),
-    url(r'^login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^logout/',auth_views.logout_then_login, name='logout'),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
