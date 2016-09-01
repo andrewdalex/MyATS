@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MyATS | Resources</title>
+    <title>MyATS | Info | {{ resource.resource_name }}</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap core CSS -->
@@ -48,30 +48,15 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'home' %}">Home</a></li>
             <li class="active"><a href="{% url 'resources' %}">Resources</a></li>
-            <li><a href="#contact">My Schedule</a></li>
+            <li><a href="#schedule">My Schedule</a></li>
             <li><a href="{% url 'logout' %}">Sign Out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container">
-        <h2 class="main-title">All the Forms You Need Before This Summer.</h2>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Item Title</th>
-              <th>Additional Information</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for file in files %}
-            <tr>
-              <td><a href='{{ MEDIA_URL }}{{ file.upload.name }}'>{{ file.resource_name }}</a></td>
-              <td><a href='/info/{{ file.resource_name }}'>Additional Information</a></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+        <h2 class="main-title">{{ resource.resource_name }}</h2>
+        <p>{{ resource.description }}</p>
 
         <footer class="footer">
             <p>Draft by Andrew Alex, 2016</p>

@@ -41,6 +41,7 @@ class Class(models.Model):
 class Resource(models.Model):
     upload = models.FileField()
     resource_name = models.CharField(max_length=150, null=True)
+    description = models.TextField()
     class Meta:
         verbose_name = "PDF"
         verbose_name_plural = "PDFs"

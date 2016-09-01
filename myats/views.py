@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from django import forms
 from django.contrib.auth.models import User
@@ -20,3 +20,9 @@ def ResourceView(request):
     files = Resource.objects.all()
     context = { 'files':files }
     return render(request, 'resources.html', context=context)
+
+@login_required
+def infoView(request, page_title):
+    resource = get_object_or_404(Resource, resource_name=page_title)
+    context = {'resource':resource}
+    return render(request, 'infoPage.html', context=context)

@@ -8,7 +8,6 @@ class ReceivedFormInline(admin.TabularInline):
 class StudentAdmin(admin.ModelAdmin):
     inlines = (ReceivedFormInline,)
 
-
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Class)
 admin.site.register(Resource)
