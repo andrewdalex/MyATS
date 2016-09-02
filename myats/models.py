@@ -18,6 +18,7 @@ class Resource(models.Model):
     upload = models.FileField()
     resource_name = models.CharField(max_length=150, null=True, verbose_name="Document Name")
     resource_description = models.TextField(verbose_name="Description")
+    resource_alert_message = models.TextField(verbose_name="Alert Message", blank=True)
     fourth_fifth = models.BooleanField(verbose_name="4th-5th Program")
     sixth_ninth = models.BooleanField(verbose_name="6th-9th Program")
     class Meta:
