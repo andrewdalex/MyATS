@@ -13,9 +13,12 @@
     <div class="container">
       <form class="form-signin" method="post" action="{% url 'search' %}">
         {% csrf_token %}
-        <h2 class="form-signin-heading">Enter your ATS ID#</h2>
-        <label for="inputEmail" class="sr-only">User ID#</label>
-        <input name="person_id" type="text" id="inputEmail" class="form-control" placeholder="User ID#" required autofocus/>
+        <h2 class="form-signin-heading" style="text-align:center;">Enter your ATS ID#</h2>
+        {% for error in Search_Form.non_field_errors %}
+          <div class="alert alert-danger" style="text-align:center;" role="alert"><p>{{ error }}</p></div>
+          {% endfor %}
+        <label for="inputEmail" class="sr-only">ATS ID#</label>
+        <input name="person_id" type="text" id="inputEmail" class="form-control" placeholder="ATS ID#" required autofocus/>
         <button id="submitButton" class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
       </form>
     </div> <!-- /container -->
