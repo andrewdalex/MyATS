@@ -7,20 +7,49 @@
     <title>MyATS Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="{% static 'login.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
     <div class="container">
+      <div class='row'>
+        <div class="col-md-8 col-md-offset-2" id="title">
+          <img src="{% static 'title.jpg' %}"/>
+        </div>
+      </div>
       <form class="form-signin" method="post" action="{% url 'search' %}">
         {% csrf_token %}
-        <h2 class="form-signin-heading" style="text-align:center;">Enter your ATS ID#</h2>
+        <h3 class="form-signin-heading" style="text-align:center;">Enter your ATS ID#</h3>
         {% for error in Search_Form.non_field_errors %}
           <div class="alert alert-danger" style="text-align:center;" role="alert"><p>{{ error }}</p></div>
           {% endfor %}
         <label for="inputEmail" class="sr-only">ATS ID#</label>
         <input name="person_id" type="text" id="inputEmail" class="form-control" placeholder="ATS ID#" required autofocus/>
         <button id="submitButton" class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+        <a data-container="body" style="cursor: pointer;" data-toggle="popover"
+        data-placement="left" data-trigger="focus" title="What is my ATS ID# ?"
+        tabindex="0"
+        data-content="Your ATS ID# can be found with test scores from later than 2017 or
+        on registration paperwork from previous years. Please contact us if you have trouble finding this">
+        What is my ATS ID# ?
+        </a>
       </form>
+      <div class='row'>
+        <div class="col-md-8 col-md-offset-2">
+          <img src="{% static '35-years.jpg' %}"/>
+        </div>
+      </div>
     </div> <!-- /container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+    <script> $(function () {
+  $('[data-toggle="popover"]').popover();
+});</script>
   </body>
   </html>

@@ -7,10 +7,6 @@ from .models import *
 from .forms import *
 # Create your views here.
 def home(request,student_id):
-    if student_id.isdigit():
-        student_id = int(student_id)
-    else:
-        raise Http404('Not a Valid Id')
     student = get_object_or_404(Student, student_id = student_id)
     grade = student.student_grade
     if grade <=5:
@@ -32,13 +28,3 @@ def SearchIdView(request):
     else:
         form = SearchIdForm()
     return render(request, 'login.html', {"Search_Form": form})
-
-def infoView(request, student_id, page_title):
-    if student_id.isdigit():
-        student_id = int(student_id)
-    else:
-        raise Http404('Not a Valid Id')
-    student = get_object_or_404(Student, student_id=student_id)
-    resource = get_object_or_404(Resource, resource_name=page_title)
-    context = {'resource':resource, 'student':student}
-    return render(request, 'infoPage.html', context=context)

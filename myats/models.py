@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Student(models.Model):
     #student_user = models.OneToOneField(User, null=True)
     student_grade = models.SmallIntegerField(verbose_name="Student's Grade")
-    student_id = models.PositiveIntegerField(verbose_name="Student's ID#")
+    student_id = models.CharField(max_length=5, verbose_name="Student's ID#")
     class Meta:
         verbose_name_plural = 'Students'
         verbose_name = 'Student'

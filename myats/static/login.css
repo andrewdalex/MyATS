@@ -1,9 +1,21 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+/*  background-color: #eee; */
 }
-
+#title{
+  padding-left:75px;
+}
+@media (max-width: 768px){
+  #title{
+    padding-left:40px;
+  }
+}
+img
+{
+  max-height: 100%;
+  max-width: 100%;
+}
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -53,4 +65,10 @@ body {
 {
   background-color: #20cc99 !important;
   border-color: #000000 !important;
+}
+
+.title
+{
+  font-family: Roboto;
+  color: #176939;
 }

@@ -2,7 +2,7 @@ from django import forms
 from .models import Student
 
 class SearchIdForm(forms.Form):
-    person_id = forms.IntegerField()
+    person_id = forms.CharField()
     def clean(self):
         cleaned_data = super(SearchIdForm, self).clean()
         person_id = cleaned_data.get('person_id')

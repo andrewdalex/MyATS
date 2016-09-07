@@ -48,8 +48,8 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/home/{{ student_id }}">Home</a></li>
             <li><a href="http://www.csus.edu/coe/ats/contact.html">Contact Us</a></li>
-            <li><a href="{% url 'search' %}">Search for New Student</a></li>
-            <li><a href="http://www.csus.edu/coe/ats/">ATS Homepage</a></li>
+            <li><a href="{% url 'search' %}">Search for Another Student</a></li>
+            <li><a href="http://www.csus.edu/coe/ats/">ATS Website</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -71,7 +71,15 @@
               {% else %}
               <td><a href='{{ MEDIA_URL }}{{ file.upload.name }}'>{{ file.resource_name }}</a></td>
               {% endif %}
-              <td><a href='/info/{{ student_id }}/{{ file.resource_name }}'>Additional Information</a></td>
+              <td>
+                <!-- <a href='/info/{{ student_id }}/{{ file.resource_name }}'>Additional Information</a> -->
+                <a data-container="body" style="cursor: pointer;" data-toggle="popover"
+                data-placement="right" data-trigger="focus" title="{{ file.resource_name }}"
+                tabindex="0"
+                data-content="{{ file.resource_description }}">
+                Additional Information
+                </a>
+              </td>
             </tr>
             {% endfor %}
           </tbody>
@@ -86,14 +94,18 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script>
-    function myFunction(mess){
-      alert(mess);
-    }</script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
+    <script>
+    $(function () {
+  $('[data-toggle="popover"]').popover();
+});
+    function myFunction(mess){
+      alert(mess);
+    }</script>
   </body>
 </html>
