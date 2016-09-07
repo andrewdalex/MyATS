@@ -42,15 +42,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/home/{{ student_id }}">MyATS</a>
+          <a class="navbar-brand" href="/home/{{ person_id }}">MyATS</a>
+          <a class="navbar-brand" href="/home/{{ person_id }}">
+            <img alt="Brand" id="brand" src="{% static 'sac_primary_bw.png' %}">
+          </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/home/{{ student_id }}">Home</a></li>
+            <li class="active"><a href="/home/{{ person_id }}">Home</a></li>
             <li><a href="http://www.csus.edu/coe/ats/contact.html">Contact Us</a></li>
             <li><a href="{% url 'search' %}">Enter Another ID#</a></li>
             <li><a href="http://www.csus.edu/coe/ats/">ATS Website</a></li>
           </ul>
+          <p class="navbar-text navbar-right" id="hide">Viewing information for {{ person_id }}</p>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -85,7 +89,19 @@
           </tbody>
         </table>
         <footer class="footer">
-            <p>Draft by Andrew Alex, 2016</p>
+          <div class='row'>
+            <div class="col-xs-6 col-md-4">
+              <a href="http://www.csus.edu/coe/ats/">Visit our Homepage</a>
+            </div>
+            <div class="col-xs-3 col-xs-offset-3 col-md-3 col-md-offset-1">
+              <a href="https://www.facebook.com/academictalentsearch/">
+                <img id="facebook" src="{% static 'Facebook_icon.jpg' %}"/>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-3" id="dev-contact">
+                <p>Problems with the website? Email: a.alex@ucla.edu</p>
+            </div>
+          </div>
         </footer>
 
     </div><!-- /.container -->

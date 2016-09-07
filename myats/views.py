@@ -17,7 +17,7 @@ def home(request,person_id):
         files = Resource.objects.filter(ta=True)
     else:
         files = Resource.objects.filter(teacher=True)
-    context = { 'files':files, 'student_id': person_id }
+    context = { 'files':files, 'person_id': person_id }
     return render(request,'home.html', context=context)
 
 
