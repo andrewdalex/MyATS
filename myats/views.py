@@ -6,15 +6,18 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 # Create your views here.
-def home(request,student_id):
-    student = get_object_or_404(Student, student_id = student_id)
-    grade = student.student_grade
+def home(request,person_id):
+    person = get_object_or_404(Student, person_id = person_id)
+    grade = person.person_grade
     if grade <=5:
         files = Resource.objects.filter(fourth_fifth=True)
-    else:
+    elif grade <=9:
         files = Resource.objects.filter(sixth_ninth=True)
-
-    context = { 'files':files, 'student_id':student_id }
+    elif grade == 20:
+        files = Resource.objects.filter(ta=True)
+    else:
+        files = Resource.objects.filter(teacher=True)
+    context = { 'files':files, 'student_id': person_id }
     return render(request,'home.html', context=context)
 
 
@@ -23,8 +26,8 @@ def SearchIdView(request):
         form = SearchIdForm(request.POST)
         if form.is_valid():
             person_id = form.cleaned_data.get('person_id')
-            student = get_object_or_404(Student, student_id=person_id)
-            return redirect('home', student)
+            person = get_object_or_404(Student, person_id=person_id)
+            return redirect('home', person_id)
     else:
         form = SearchIdForm()
     return render(request, 'login.html', {"Search_Form": form})

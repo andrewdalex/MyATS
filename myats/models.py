@@ -6,13 +6,13 @@ from django.contrib.auth.models import User
 
 class Student(models.Model):
     #student_user = models.OneToOneField(User, null=True)
-    student_grade = models.SmallIntegerField(verbose_name="Student's Grade")
-    student_id = models.CharField(max_length=5, verbose_name="Student's ID#")
+    person_grade = models.SmallIntegerField(verbose_name="Student's Grade")
+    person_id = models.CharField(max_length=5, verbose_name="Student's ID#")
     class Meta:
-        verbose_name_plural = 'Students'
-        verbose_name = 'Student'
+        verbose_name_plural = 'People'
+        verbose_name = 'Person'
     def __str__(self):
-        return '{0}'.format(self.student_id)
+        return '{0}'.format(self.person_id)
 
 class Resource(models.Model):
     upload = models.FileField()
@@ -21,6 +21,8 @@ class Resource(models.Model):
     resource_alert_message = models.TextField(verbose_name="Alert Message", blank=True)
     fourth_fifth = models.BooleanField(verbose_name="4th-5th Program")
     sixth_ninth = models.BooleanField(verbose_name="6th-9th Program")
+    teacher = models.BooleanField(verbose_name="Teacher")
+    ta = models.BooleanField(verbose_name="TA")
     class Meta:
         verbose_name = "PDF"
         verbose_name_plural = "PDFs"
