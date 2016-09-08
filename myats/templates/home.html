@@ -54,7 +54,7 @@
             <li><a href="{% url 'search' %}">Enter Another ID#</a></li>
             <li><a href="http://www.csus.edu/coe/ats/">ATS Website</a></li>
           </ul>
-          <p class="navbar-text navbar-right" id="hide">Viewing information for {{ person_id }}</p>
+          <p class="navbar-text navbar-right" id="hide">Viewing information for ID# {{ person_id }}</p>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -90,16 +90,16 @@
         </table>
         <footer class="footer">
           <div class='row'>
-            <div class="col-xs-6 col-md-4">
+            <div class="col-xs-6">
               <a href="http://www.csus.edu/coe/ats/">Visit our Homepage</a>
             </div>
-            <div class="col-xs-3 col-xs-offset-3 col-md-3 col-md-offset-1">
+            <div class="col-xs-6 col-sm-offset-3 col-sm-3" id="dev-contact">
+                <p>Problems? Email: ats@csus.edu</p>
+            </div>
+            <div class="col-xs-3">
               <a href="https://www.facebook.com/academictalentsearch/">
                 <img id="facebook" src="{% static 'Facebook_icon.jpg' %}"/>
               </a>
-            </div>
-            <div class="col-xs-12 col-md-3" id="dev-contact">
-                <p>Problems with the website? Email: ats@csus.edu</p>
             </div>
           </div>
         </footer>
